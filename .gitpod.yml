@@ -1,4 +1,5 @@
 tasks:
   - init: cargo build && make
     command: cargo watch -x run
-    command: rustup nightly
+    command: rustup install nightly
+    command: make init
