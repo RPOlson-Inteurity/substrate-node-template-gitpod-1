@@ -2,4 +2,6 @@ tasks:
   - init: cargo build && make
     command: cargo watch -x run
     command: rustup install nightly
+    command: rustup install stable
+    command: rustup target add wasm32-unknown-unknown --toolchain nightly
     command: make init
