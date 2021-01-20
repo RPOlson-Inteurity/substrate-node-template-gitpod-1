@@ -1,5 +1,8 @@
 tasks:
-  - init: cargo build && make
-    command: cargo watch -x run
-    command: rustup install nightly
-    command: rustup install stable 
+  - init: |
+      curl https://sh.rustup.rs/ -sSf | sh
+      1
+      source /workspace/.cargo/env
+      rustup install nightly
+      rustup install stable
+      rustup target add wasm32-unknown-unknown --toolchain nightly
