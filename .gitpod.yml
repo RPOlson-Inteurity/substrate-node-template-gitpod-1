@@ -1,8 +1,17 @@
 tasks:
+  ports:
+  - port: 8000
+    onOpen: open-preview
   - init: |
-      curl https://sh.rustup.rs/ -sSf | sh
-      1
+      curl https://sh.rustup.rs/ -sSf | sh -s -- -y
       source /workspace/.cargo/env
       rustup install nightly
       rustup install stable
       rustup target add wasm32-unknown-unknown --toolchain nightly
+      make init
+    command: |
+      make init
+      make build
+    prebuild: |
+      make init
+      make build
